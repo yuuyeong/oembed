@@ -1,0 +1,65 @@
+YouTube:
+  provider_url: https://www.youtube.com/
+  endpoints:
+    url: https://www.youtube.com/oembed
+    discovery: true
+
+Instagram:
+  provider_url: https://instagram.com
+  endpoints:
+    schemes:
+      http://instagram.com/p/*
+      http://instagr.am/p/*
+      http://www.instagram.com/p/*
+      http://www.instagr.am/p/*
+      https://instagram.com/p/*
+      https://instagr.am/p/*
+      https://www.instagram.com/p/*
+      https://www.instagr.am/p/*
+    url: https://api.instagram.com/oembed
+    formats: json
+
+Twitter:
+  provider_url: http://www.twitter.com/
+  endpoints:
+    schemes:
+      https://twitter.com/*/status/*
+      https://*.twitter.com/*/status/*
+    url: https://publish.twitter.com/oembed
+
+Vimeo:
+  provider_url: https://vimeo.com/
+  endpoints:
+    schemes:
+      https://vimeo.com/*
+      https://vimeo.com/album/*/video/*
+      https://vimeo.com/channels/*/*
+      https://vimeo.com/groups/*/videos/*
+      https://vimeo.com/ondemand/*/*
+      https://player.vimeo.com/video/*
+    url: https://vimeo.com/api/oembed.{format}
+    discovery: true
+
+Facebook_video:
+  provider_url: https://www.facebook.com/
+  endpoints:
+    schemes:
+      https://www.facebook.com/*/videos/*
+      https://www.facebook.com/video.php
+    url: https://www.facebook.com/plugins/video/oembed.json
+    discovery: true
+
+Facebook_post:
+  provider_url: https://www.facebook.com/
+  endpoints:
+    schemes:
+      https://www.facebook.com/*/posts/*
+      https://www.facebook.com/photos/*
+      https://www.facebook.com/photo.php
+      https://www.facebook.com/*/activity/*
+      https://www.facebook.com/permalink.php
+      https://www.facebook.com/media/set?set=*
+      https://www.facebook.com/questions/*
+      https://www.facebook.com/notes/*/*/*
+    url: https://www.facebook.com/plugins/post/oembed.json
+    discovery: true

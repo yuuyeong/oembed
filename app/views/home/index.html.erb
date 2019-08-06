@@ -1,0 +1,47 @@
+<div class='container'>
+    <div class="col-12 my-5">
+        <% if flash[:error].present? %>
+            <div class="alert alert-warning my-5" role="alert"><%= flash[:error] %></div>
+        <% end %>
+        <h2 class="text-center">Fetch oEmbed Data</h2>
+        <div class="row justify-content-center my-5">
+            <div class="col-8">
+                    <%= form_tag(root_path, method: :get, class: "navbar-form navbar-left") do %>
+                        <div class="input-group">
+                            <%= text_field_tag(:request_url, '', placeholder: '미리보고 싶은 컨텐츠의 URL을 입력해주세요', class: 'form-control') %>
+                            <span class="input-group-btn">
+                              <%=submit_tag '확인' ,class:"btn btn-outline-success my-2 my-sm-0"%>
+                            </span> 
+                        </div>
+                    <%end%>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <table class="table table-striped">
+                <tbody>
+                    <% @result.each do |key, value| %>
+                      <tr class="d-flex">
+                        <td class="col-2"><%= key %></td>
+                        <% if key == 'html' %>
+                          <td>
+                            <%= value %>
+                            <p></p>
+                            <%= value.html_safe %>
+                          </td>
+                        <% elsif key == 'thumbnail_url' %>
+                          <td>
+                            <%= value %>
+                            <p></p>
+                            <%= image_tag value %>
+                          </td>
+                        <% else %>
+                          <td><%= value %></td>
+                        <%end%>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+            <br>
+        </div>
+    </div>
+</div>
